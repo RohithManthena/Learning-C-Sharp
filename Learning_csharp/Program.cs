@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Learning_csharp
 {
@@ -62,27 +63,46 @@ namespace Learning_csharp
              }*/
 
             // Challenge - Student Manager //
-            Console.WriteLine("How many student in the class?");
-            var count = int.Parse(Console.ReadLine());
-            var Student_Name = new string[count];
-            var Student_Grade = new int[count];
-            for(int i=0;i<count;i++)
+            /*            Console.WriteLine("How many student in the class?");
+                        var count = int.Parse(Console.ReadLine());
+                        var Student_Name = new string[count];
+                        var Student_Grade = new int[count];
+                        for(int i=0;i<count;i++)
+                        {
+                            Console.WriteLine("Please enter the student name");
+                            Student_Name[i] = Console.ReadLine();
+                            while (Student_Name[i] == "")
+                            {
+                                Console.WriteLine("You Did not enter anything, Please enter the student name again");
+                                Student_Name[i]=Console.ReadLine();
+                            }
+                            Console.WriteLine("Please enter the student Grade");
+                            Student_Grade[i] = int.Parse(Console.ReadLine());
+                        }
+                        for(int i=0;i<count;i++)
+                        {
+                            Console.WriteLine("Student Name:{0}  Student Grade:{1}", Student_Name[i], Student_Grade[i]);
+                        }*/
+            // Challenge - Student Manager using list //
+            var StudentNames = new List<String>();
+            var StudentGrades = new List<int>();
+            var add = true;
+            while(add)
             {
-                Console.WriteLine("Please enter the student name");
-                Student_Name[i] = Console.ReadLine();
-                while (Student_Name[i] == "")
-                {
-                    Console.WriteLine("You Did not enter anything, Please enter the student name again");
-                    Student_Name[i]=Console.ReadLine();
-                }
-                Console.WriteLine("Please enter the student Grade");
-                Student_Grade[i] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please type the student name");
+                StudentNames.Add(Console.ReadLine());
+                Console.WriteLine("Please type the student grade");
+                StudentGrades.Add(int.Parse(Console.ReadLine()));
+                Console.WriteLine("If you want to add another student please type 'y', else type 'n'");
+
+                if (Console.ReadLine() == "n")
+                    add = false;
             }
-            for(int i=0;i<count;i++)
+            for(int i=0;i<StudentNames.Count;i++)
             {
-                Console.WriteLine("Student Name:{0}  Student Grade:{1}", Student_Name[i], Student_Grade[i]);
+                Console.WriteLine("Student Name:{0}  Student Grade:{1}", StudentNames[i], StudentGrades[i]);
             }
-            
+
         }
         static string tryagain()
         {
